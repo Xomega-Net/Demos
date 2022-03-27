@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://www.xomega.net/omodel" xmlns:xfk="http://www.xomega.net/framework"
+        xmlns:svc="http://www.xomega.net/svc"
+        xmlns:rest="http://www.xomega.net/rest"
+        xmlns:ui="http://www.xomega.net/ui"
+        xmlns:asp="clr-namespace:System.Web.UI.WebControls;assembly=System.Web"
+        xmlns:sql="http://www.xomega.net/sql"
+        xmlns:clr="http://www.xomega.net/clr"
+        xmlns:edm="http://www.xomega.net/edm">
+  <types>
+    <type name="business object type" base="integer enumeration"/>
+    <type name="work order type" base="business object type">
+      <config>
+        <xfk:property class="WorkOrderTypeProperty" namespace="Demo.Client.Common.DataProperties"/>
+      </config>
+    </type>
+    <type name="schedule type" base="business object type">
+      <config>
+        <xfk:property class="ScheduleTypeProperty" namespace="Demo.Client.Common.DataProperties"/>
+      </config>
+    </type>
+  </types>
+  <objects>
+    <object name="business object type">
+      <fields>
+        <field name="id" type="business object type" key="serial" required="true">
+          <config>
+            <sql:column name="Id"/>
+          </config>
+        </field>
+        <field name="business object" type="business object" required="true">
+          <config>
+            <sql:column name="BusinessObject"/>
+          </config>
+        </field>
+        <field name="stub" type="char string30">
+          <config>
+            <sql:column name="Stub"/>
+          </config>
+        </field>
+        <field name="description" type="char string255">
+          <config>
+            <sql:column name="Description"/>
+          </config>
+        </field>
+        <field name="active" type="boolean">
+          <config>
+            <sql:column name="Active" default="((1))"/>
+          </config>
+        </field>
+      </fields>
+      <operations>
+        <operation name="read enums">
+          <output list="true">
+            <param name="enum type" type="string"/>
+            <param name="id"/>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="active"/>
+          </output>
+          <config>
+            <rest:method verb="GET" uri-template="business-object-type"/>
+            <xfk:enum-cache enum-param="enum type" id-param="id" desc-param="stub" is-active-param="active"/>
+          </config>
+          <doc>
+            <summary>Reads a list of Business Object Type enums.</summary>
+          </doc>
+        </operation>
+        <doc>
+          <summary>A service for querying and managing Business Object Type objects.</summary>
+        </doc>
+      </operations>
+      <config>
+        <sql:table name="BusinessObjectType"/>
+      </config>
+    </object>
+  </objects>
+</module>

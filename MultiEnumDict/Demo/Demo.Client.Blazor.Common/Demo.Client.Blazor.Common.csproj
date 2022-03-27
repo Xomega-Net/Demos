@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <RootNamespace>Demo.Client.Blazor.Common</RootNamespace>
+    <AssemblyName>Demo.Client.Blazor.Common</AssemblyName>
+    <XomegaProjectType>Client.Blazor.Common</XomegaProjectType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xomega.Framework.Blazor" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Client.Common\Demo.Client.Common.csproj" />
+  </ItemGroup>
+
+</Project>
