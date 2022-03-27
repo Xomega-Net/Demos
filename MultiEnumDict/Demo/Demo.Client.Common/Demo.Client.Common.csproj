@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>
+      net6.0
+    </TargetFrameworks>
+    <RootNamespace>Demo.Client.Common</RootNamespace>
+    <AssemblyName>Demo.Client.Common</AssemblyName>
+    <XomegaProjectType>Client.Common</XomegaProjectType>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net6.0'">
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="ConfigurableFileNesting" />
+    <ProjectCapability Include="ConfigurableFileNestingFeatureEnabled" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Demo.Services.Common/Demo.Services.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Messages.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <LastGenOutput>Messages.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

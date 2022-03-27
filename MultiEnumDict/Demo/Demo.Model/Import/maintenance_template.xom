@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://www.xomega.net/omodel" xmlns:xfk="http://www.xomega.net/framework"
+        xmlns:svc="http://www.xomega.net/svc"
+        xmlns:rest="http://www.xomega.net/rest"
+        xmlns:ui="http://www.xomega.net/ui"
+        xmlns:asp="clr-namespace:System.Web.UI.WebControls;assembly=System.Web"
+        xmlns:sql="http://www.xomega.net/sql"
+        xmlns:clr="http://www.xomega.net/clr"
+        xmlns:edm="http://www.xomega.net/edm">
+  <types>
+    <type name="maintenance template" base="integer key"/>
+  </types>
+  <objects>
+    <object name="maintenance template">
+      <fields>
+        <field name="id" type="maintenance template" key="serial" required="true">
+          <config>
+            <sql:column name="Id"/>
+          </config>
+        </field>
+        <field name="stub" type="char string30">
+          <config>
+            <sql:column name="Stub"/>
+          </config>
+        </field>
+        <field name="description" type="char string255">
+          <config>
+            <sql:column name="Description"/>
+          </config>
+        </field>
+        <field name="schedule type" type="schedule type" required="true">
+          <config>
+            <sql:column name="ScheduleType"/>
+          </config>
+        </field>
+        <field name="work order type" type="work order type" required="true">
+          <config>
+            <sql:column name="WorkOrderType"/>
+          </config>
+        </field>
+        <field name="duration" type="integer">
+          <config>
+            <sql:column name="Duration"/>
+          </config>
+        </field>
+        <field name="active" type="boolean">
+          <config>
+            <sql:column name="Active" default="((1))"/>
+          </config>
+        </field>
+      </fields>
+      <operations>
+        <operation name="read" type="read">
+          <input>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </input>
+          <output>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="schedule type"/>
+            <param name="work order type"/>
+            <param name="duration"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="GET" uri-template="maintenance-template/{id}"/>
+          </config>
+          <doc>
+            <summary>Reads the values of a Maintenance Template object by its key.</summary>
+          </doc>
+        </operation>
+        <operation name="create" type="create">
+          <input arg="data">
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="schedule type"/>
+            <param name="work order type"/>
+            <param name="duration"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </input>
+          <output>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="POST" uri-template="maintenance-template"/>
+          </config>
+          <doc>
+            <summary>Creates a new Maintenance Template object using the specified data.</summary>
+          </doc>
+        </operation>
+        <operation name="update" type="update">
+          <input>
+            <param name="id"/>
+            <struct name="data">
+              <param name="stub"/>
+              <param name="description"/>
+              <param name="schedule type"/>
+              <param name="work order type"/>
+              <param name="duration"/>
+              <param name="active" type="yesno"/>
+              <config>
+                <xfk:add-to-object class="MaintenanceTemplateObject"/>
+              </config>
+            </struct>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </input>
+          <config>
+            <rest:method verb="PUT" uri-template="maintenance-template/{id}"/>
+          </config>
+          <doc>
+            <summary>Updates existing Maintenance Template object using the specified data.</summary>
+          </doc>
+        </operation>
+        <operation name="delete" type="delete">
+          <input>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateObject"/>
+            </config>
+          </input>
+          <config>
+            <rest:method verb="DELETE" uri-template="maintenance-template/{id}"/>
+          </config>
+          <doc>
+            <summary>Deletes the specified Maintenance Template object.</summary>
+          </doc>
+        </operation>
+        <operation name="read list" type="readlist">
+          <input>
+            <struct name="criteria">
+              <param name="stub operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Stub criteria.</summary>
+                </doc>
+              </param>
+              <param name="stub" required="false"/>
+              <param name="description operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Description criteria.</summary>
+                </doc>
+              </param>
+              <param name="description" required="false"/>
+              <param name="schedule type operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Schedule Type criteria.</summary>
+                </doc>
+              </param>
+              <param name="schedule type" required="false"/>
+              <param name="work order type operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Work Order Type criteria.</summary>
+                </doc>
+              </param>
+              <param name="work order type" required="false"/>
+              <param name="duration operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Duration criteria.</summary>
+                </doc>
+              </param>
+              <param name="duration" required="false"/>
+              <param name="duration2" type="integer" required="false">
+                <doc>
+                  <summary>End of range for the corresponding Duration criteria for the BETWEEN operator.</summary>
+                </doc>
+              </param>
+              <param name="active operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Active criteria.</summary>
+                </doc>
+              </param>
+              <param name="active" required="false" type="yesno"/>
+              <config>
+                <xfk:add-to-object class="MaintenanceTemplateCriteria"/>
+              </config>
+            </struct>
+          </input>
+          <output list="true">
+            <param name="id"/>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="schedule type"/>
+            <param name="work order type"/>
+            <param name="duration"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="MaintenanceTemplateList"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="GET" uri-template="maintenance-template?{criteria}"/>
+          </config>
+          <doc>
+            <summary>Reads a list of Maintenance Template objects based on the specified criteria.</summary>
+          </doc>
+        </operation>
+        <doc>
+          <summary>A service for querying and managing Maintenance Template objects.</summary>
+        </doc>
+      </operations>
+      <config>
+        <sql:table name="MaintenanceTemplate"/>
+      </config>
+    </object>
+  </objects>
+  <xfk:data-objects>
+    <xfk:data-object class="MaintenanceTemplateObject">
+      <ui:display>
+        <ui:fields>
+          <ui:field param="id" hidden="true"/>
+        </ui:fields>
+        <ui:tabs/>
+      </ui:display>
+    </xfk:data-object>
+    <xfk:data-object class="MaintenanceTemplateCriteria"/>
+    <xfk:data-object class="MaintenanceTemplateList" list="true">
+      <ui:display>
+        <ui:fields>
+          <ui:field param="id" hidden="true"/>
+        </ui:fields>
+      </ui:display>
+      <ui:link name="details" view="MaintenanceTemplateView" child="true">
+        <ui:params>
+          <ui:param name="id" field="id"/>
+        </ui:params>
+        <ui:display on-field="stub"/>
+      </ui:link>
+      <ui:link name="new" view="MaintenanceTemplateView" child="true">
+        <ui:params>
+          <ui:param name="_action" value="create"/>
+        </ui:params>
+      </ui:link>
+    </xfk:data-object>
+  </xfk:data-objects>
+  <ui:views>
+    <ui:view name="MaintenanceTemplateView" title="Maintenance Template">
+      <ui:view-model data-object="MaintenanceTemplateObject"/>
+    </ui:view>
+    <ui:view name="MaintenanceTemplateListView" title="Maintenance Template List">
+      <ui:view-model data-object="MaintenanceTemplateList"/>
+    </ui:view>
+  </ui:views>
+</module>

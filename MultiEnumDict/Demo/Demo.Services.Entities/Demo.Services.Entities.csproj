@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>
+      net6.0
+    </TargetFrameworks>
+    <RootNamespace>Demo.Services.Entities</RootNamespace>
+    <AssemblyName>Demo.Services.Entities</AssemblyName>
+    <XomegaProjectType>Services.Entities</XomegaProjectType>
+    <XomegaProjectConfig>EF6=False</XomegaProjectConfig>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="ConfigurableFileNesting" />
+    <ProjectCapability Include="ConfigurableFileNestingFeatureEnabled" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" Condition="'$(TargetFramework)'=='net6.0'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Demo.Services.Common/Demo.Services.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Messages.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <LastGenOutput>Messages.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <XomegaProjectType>Client.Blazor.Wasm</XomegaProjectType>
+    <XomegaProjectConfig>Hosting=None</XomegaProjectConfig>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Client.Blazor.Common\Demo.Client.Blazor.Common.csproj" />
+  </ItemGroup>
+
+</Project>

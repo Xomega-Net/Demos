@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://www.xomega.net/omodel" xmlns:xfk="http://www.xomega.net/framework"
+        xmlns:svc="http://www.xomega.net/svc"
+        xmlns:rest="http://www.xomega.net/rest"
+        xmlns:ui="http://www.xomega.net/ui"
+        xmlns:asp="clr-namespace:System.Web.UI.WebControls;assembly=System.Web"
+        xmlns:sql="http://www.xomega.net/sql"
+        xmlns:clr="http://www.xomega.net/clr"
+        xmlns:edm="http://www.xomega.net/edm">
+  <types>
+    <type name="business object" base="integer key"/>
+  </types>
+  <enums>
+    <enum name="business object">
+      <item name="WorkOrder" value="1">
+        <doc>
+          <summary>WorkOrder Business Object</summary>
+        </doc>
+      </item>
+      <item name="MaintenanceTemplate" value="2">
+        <doc>
+          <summary>WorkOrder Business Object</summary>
+        </doc>
+      </item>
+      <config>
+        <sql:enum-source items-object="business object"/>
+      </config>
+      <doc>
+        <summary>Business objects</summary>
+        Note: This enum was imported from the BusinessObject table.</doc>
+    </enum>
+  </enums>
+  <objects>
+    <object name="business object">
+      <fields>
+        <field name="id" type="business object" key="serial" required="true">
+          <config>
+            <sql:column name="Id"/>
+          </config>
+        </field>
+        <field name="stub" type="char string30">
+          <config>
+            <sql:column name="Stub"/>
+          </config>
+        </field>
+        <field name="description" type="char string255">
+          <config>
+            <sql:column name="Description"/>
+          </config>
+        </field>
+        <field name="active" type="boolean">
+          <config>
+            <sql:column name="Active" default="((1))"/>
+          </config>
+        </field>
+      </fields>
+      <config>
+        <sql:table name="BusinessObject"/>
+        <sql:enum-items item-value="id" item-text="stub" item-desc="description"/> 
+      </config>
+    </object>
+  </objects>
+</module>
