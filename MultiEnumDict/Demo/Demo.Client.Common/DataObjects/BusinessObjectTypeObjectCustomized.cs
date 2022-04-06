@@ -1,3 +1,4 @@
+using Demo.Services.Common.Enumerations;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Demo.Client.Common.DataObjects
             if (cacheProvider == null) throw new Exception("Cannot get ILookupCacheProvider");
             var globalCache = cacheProvider.GetLookupCache(LookupCache.Global);
             
-            var boEnum = Services.Common.Enumerations.BusinessObject.EnumName;
+            var boEnum = BusinessObjects.EnumName;
             var boTable = globalCache.GetLookupTable(boEnum);
             foreach (var bo in boTable.GetValues())
             {

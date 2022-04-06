@@ -9,11 +9,11 @@
         xmlns:edm="http://www.xomega.net/edm">
   <types>
     <type name="business object" base="integer enumeration">
-      <enum ref="business object"/>
+      <enum ref="business objects"/>
     </type>
   </types>
   <enums>
-    <enum name="business object">
+    <enum name="business objects">
       <item name="Work Order" value="1">
         <doc>
           <summary>WorkOrder Business Object</summary>

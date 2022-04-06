@@ -67,7 +67,7 @@ namespace Demo.Client.Common.DataObjects
             BusinessObjectProperty = new EnumIntProperty(this, BusinessObject)
             {
                 Required = true,
-                EnumType = "business object",
+                EnumType = "business objects",
                 Editable = false,
             };
             StubProperty = new TextProperty(this, Stub)

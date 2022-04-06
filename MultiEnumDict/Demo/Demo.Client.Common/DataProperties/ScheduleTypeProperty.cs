@@ -8,7 +8,7 @@ namespace Demo.Client.Common.DataProperties
     {
         public ScheduleTypeProperty(DataObject parent, string name) : base(parent, name)
         {
-            EnumType = BusinessObject.EnumName + BusinessObject.MaintenanceTemplate;
+            EnumType = BusinessObjects.EnumName + BusinessObjects.MaintenanceTemplate;
         }
     }
 }

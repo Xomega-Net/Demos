@@ -4,6 +4,7 @@
 // Manual CHANGES to this file WILL BE LOST when the code is regenerated.
 //---------------------------------------------------------------------------------------------
 
+using Demo.Services.Common.Enumerations;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -76,7 +77,7 @@ namespace Demo.Services.Common
     {
         
         [XRequired]
-        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        [XLookupValue(BusinessObjects.EnumName)]
         public int BusinessObject { get; set; }
         
         [XMaxLength(30)]
@@ -110,7 +111,7 @@ namespace Demo.Services.Common
     {
         
         [XRequired]
-        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        [XLookupValue(BusinessObjects.EnumName)]
         public int BusinessObject { get; set; }
         
         [XMaxLength(30)]
@@ -155,23 +156,23 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Business Object criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string BusinessObjectOperator { get; set; }
         
-        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        [XLookupValue(BusinessObjects.EnumName)]
         public int? BusinessObject { get; set; }
         
         ///<summary>
         /// End of range for the corresponding Business Object criteria for the BETWEEN operator.
         ///</summary>
-        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        [XLookupValue(BusinessObjects.EnumName)]
         public int? BusinessObject2 { get; set; }
         
         ///<summary>
         /// Comparison operator for the corresponding Stub criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string StubOperator { get; set; }
         
         [XMaxLength(30)]
@@ -181,7 +182,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Description criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string DescriptionOperator { get; set; }
         
         [XMaxLength(255)]
@@ -191,7 +192,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Active criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string ActiveOperator { get; set; }
         
         public bool? Active { get; set; }

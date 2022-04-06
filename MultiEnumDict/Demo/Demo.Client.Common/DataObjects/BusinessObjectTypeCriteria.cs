@@ -60,11 +60,11 @@ namespace Demo.Client.Common.DataObjects
             };
             BusinessObjectProperty = new EnumIntProperty(this, BusinessObject)
             {
-                EnumType = "business object",
+                EnumType = "business objects",
             };
             BusinessObject2Property = new EnumIntProperty(this, BusinessObject2)
             {
-                EnumType = "business object",
+                EnumType = "business objects",
             };
             StubOperatorProperty = new OperatorProperty(this, StubOperator)
             {

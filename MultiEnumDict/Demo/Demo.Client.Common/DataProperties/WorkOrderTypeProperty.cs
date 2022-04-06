@@ -8,7 +8,7 @@ namespace Demo.Client.Common.DataProperties
     {
         public WorkOrderTypeProperty(DataObject parent, string name) : base(parent, name)
         {
-            EnumType = BusinessObject.EnumName + BusinessObject.WorkOrder;
+            EnumType = BusinessObjects.EnumName + BusinessObjects.WorkOrder;
         }
     }
 }

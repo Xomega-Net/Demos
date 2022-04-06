@@ -6,16 +6,16 @@
 
 namespace Demo.Services.Common.Enumerations
 {
-    #region BusinessObject
+    #region BusinessObjects
     ///<summary>
     /// Business objects
     ///</summary>
-    public class BusinessObject
+    public class BusinessObjects
     {
         ///<summary>
         /// Enumeration name used for storing it in a lookup cache.
         ///</summary>
-        public const string EnumName = "business object";
+        public const string EnumName = "business objects";
 
         ///<summary>
         /// WorkOrder Business Object

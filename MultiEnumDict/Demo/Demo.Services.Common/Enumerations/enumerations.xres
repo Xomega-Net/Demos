@@ -141,7 +141,7 @@
    <prop ref="type" value="DateTimeProperty"/>
   </item>
  </enum>
- <enum name="business object">
+ <enum name="business objects">
   <item name="Work Order" value="1"/>
   <item name="Maintenance Template" value="2"/>
  </enum>

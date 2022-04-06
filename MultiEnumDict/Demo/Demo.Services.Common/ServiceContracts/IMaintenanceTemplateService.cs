@@ -4,6 +4,7 @@
 // Manual CHANGES to this file WILL BE LOST when the code is regenerated.
 //---------------------------------------------------------------------------------------------
 
+using Demo.Services.Common.Enumerations;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -142,7 +143,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Stub criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string StubOperator { get; set; }
         
         [XMaxLength(30)]
@@ -152,7 +153,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Description criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string DescriptionOperator { get; set; }
         
         [XMaxLength(255)]
@@ -162,7 +163,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Schedule Type criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string ScheduleTypeOperator { get; set; }
         
         public int? ScheduleType { get; set; }
@@ -171,7 +172,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Work Order Type criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string WorkOrderTypeOperator { get; set; }
         
         public int? WorkOrderType { get; set; }
@@ -180,7 +181,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Duration criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string DurationOperator { get; set; }
         
         public int? Duration { get; set; }
@@ -194,7 +195,7 @@ namespace Demo.Services.Common
         /// Comparison operator for the corresponding Active criteria.
         ///</summary>
         [XMaxLength(25)]
-        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        [XLookupValue(Operators.EnumName)]
         public string ActiveOperator { get; set; }
         
         public bool? Active { get; set; }

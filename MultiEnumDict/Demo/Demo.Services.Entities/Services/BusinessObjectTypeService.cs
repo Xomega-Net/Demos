@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xomega.Framework.Services;
 // CUSTOM_CODE_START: add namespaces for custom code below
+using Demo.Services.Common.Enumerations;
 // CUSTOM_CODE_END
 
 namespace Demo.Services.Entities
@@ -146,7 +147,7 @@ namespace Demo.Services.Entities
                 var qry = from obj in src
                           select new BusinessObjectType_ReadEnumsOutput() {
                               // CUSTOM_CODE_START: set the EnumType output parameter of ReadEnums operation below
-                              EnumType = Common.Enumerations.BusinessObject.EnumName + obj.BusinessObject, // CUSTOM_CODE_END
+                              EnumType = BusinessObjects.EnumName + obj.BusinessObject, // CUSTOM_CODE_END
                               Id = obj.Id,
                               Stub = obj.Stub,
                               Description = obj.Description,
