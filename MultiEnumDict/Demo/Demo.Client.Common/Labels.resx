@@ -18,6 +18,63 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BusinessObjectTypeObject.BusinessObject">
+    <value xml:space="preserve">Business Object</value>
+  </data>
+  <data name="BusinessObjectTypeObject.Stub">
+    <value xml:space="preserve">Stub</value>
+  </data>
+  <data name="BusinessObjectTypeObject.Description">
+    <value xml:space="preserve">Description</value>
+  </data>
+  <data name="BusinessObjectTypeObject.Active">
+    <value xml:space="preserve">Active</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.BusinessObjectOperator">
+    <value xml:space="preserve">Business Object</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.BusinessObject">
+    <value xml:space="preserve">Business Object</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.BusinessObject2">
+    <value xml:space="preserve">Business Object2</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.StubOperator">
+    <value xml:space="preserve">Stub</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.Stub">
+    <value xml:space="preserve">Stub</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.DescriptionOperator">
+    <value xml:space="preserve">Description</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.Description">
+    <value xml:space="preserve">Description</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.ActiveOperator">
+    <value xml:space="preserve">Active</value>
+  </data>
+  <data name="BusinessObjectTypeCriteria.Active">
+    <value xml:space="preserve">Active</value>
+  </data>
+  <data name="BusinessObjectTypeList_Action_Details">
+    <value xml:space="preserve">Details</value>
+  </data>
+  <data name="BusinessObjectTypeList_Action_New">
+    <value xml:space="preserve">New</value>
+  </data>
+  <data name="BusinessObjectTypeList.BusinessObject">
+    <value xml:space="preserve">Business Object</value>
+  </data>
+  <data name="BusinessObjectTypeList.Stub">
+    <value xml:space="preserve">Stub</value>
+  </data>
+  <data name="BusinessObjectTypeList.Description">
+    <value xml:space="preserve">Description</value>
+  </data>
+  <data name="BusinessObjectTypeList.Active">
+    <value xml:space="preserve">Active</value>
+  </data>
   <data name="MaintenanceTemplateObject.Stub">
     <value xml:space="preserve">Stub</value>
   </data>
@@ -98,6 +155,18 @@
   </data>
   <data name="MaintenanceTemplateList.Active">
     <value xml:space="preserve">Active</value>
+  </data>
+  <data name="BusinessObjectTypeView_Title">
+    <value xml:space="preserve">Business Object Type</value>
+  </data>
+  <data name="BusinessObjectTypeView_NavMenu">
+    <value xml:space="preserve">New Business Object Type</value>
+  </data>
+  <data name="BusinessObjectTypeListView_Title">
+    <value xml:space="preserve">Business Object Type List</value>
+  </data>
+  <data name="BusinessObjectTypeListView_NavMenu">
+    <value xml:space="preserve">Business Object Type List</value>
   </data>
   <data name="MaintenanceTemplateView_Title">
     <value xml:space="preserve">Maintenance Template</value>

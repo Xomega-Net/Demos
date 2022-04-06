@@ -7,6 +7,7 @@
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,13 +26,74 @@ namespace Demo.Services.Common
         }
 
         /// <inheritdoc/>
+        public virtual async Task<Output<BusinessObjectType_ReadOutput>> ReadAsync(int _id, CancellationToken token = default)
+        {
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Get, $"business-object-type/{ _id }");
+            using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
+            {
+                var content = await resp.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Output<BusinessObjectType_ReadOutput>>(content, SerializerOptions);
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual async Task<Output<BusinessObjectType_CreateOutput>> CreateAsync(BusinessObjectType_CreateInput _data, CancellationToken token = default)
+        {
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Post, $"business-object-type")
+            {
+                Content = new StringContent(JsonSerializer.Serialize(_data), Encoding.UTF8, "application/json")
+            };
+            using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
+            {
+                var content = await resp.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Output<BusinessObjectType_CreateOutput>>(content, SerializerOptions);
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual async Task<Output> UpdateAsync(int _id, BusinessObjectType_UpdateInput_Data _data, CancellationToken token = default)
+        {
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Put, $"business-object-type/{ _id }")
+            {
+                Content = new StringContent(JsonSerializer.Serialize(_data), Encoding.UTF8, "application/json")
+            };
+            using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
+            {
+                var content = await resp.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Output>(content, SerializerOptions);
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual async Task<Output> DeleteAsync(int _id, CancellationToken token = default)
+        {
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Delete, $"business-object-type/{ _id }");
+            using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
+            {
+                var content = await resp.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Output>(content, SerializerOptions);
+            }
+        }
+
+        /// <inheritdoc/>
         public virtual async Task<Output<ICollection<BusinessObjectType_ReadEnumsOutput>>> ReadEnumsAsync(CancellationToken token = default)
         {
-            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Get, $"business-object-type");
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Get, $"business-object-type/enum");
             using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
             {
                 var content = await resp.Content.ReadAsStreamAsync();
                 return await JsonSerializer.DeserializeAsync<Output<ICollection<BusinessObjectType_ReadEnumsOutput>>>(content, SerializerOptions);
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual async Task<Output<ICollection<BusinessObjectType_ReadListOutput>>> ReadListAsync(BusinessObjectType_ReadListInput_Criteria _criteria, CancellationToken token = default)
+        {
+            HttpRequestMessage msg = new HttpRequestMessage(HttpMethod.Get, $"business-object-type?{ ToQueryString(_criteria) }");
+            using (var resp = await Http.SendAsync(msg, HttpCompletionOption.ResponseHeadersRead, token))
+            {
+                var content = await resp.Content.ReadAsStreamAsync();
+                return await JsonSerializer.DeserializeAsync<Output<ICollection<BusinessObjectType_ReadListOutput>>>(content, SerializerOptions);
             }
         }
     }

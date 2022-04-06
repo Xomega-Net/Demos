@@ -50,6 +50,89 @@
         </field>
       </fields>
       <operations>
+        <operation name="read" type="read">
+          <input>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </input>
+          <output>
+            <param name="business object"/>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="GET" uri-template="business-object-type/{id}"/>
+          </config>
+          <doc>
+            <summary>Reads the values of a Business Object Type object by its key.</summary>
+          </doc>
+        </operation>
+        <operation name="create" type="create">
+          <input arg="data">
+            <param name="business object"/>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </input>
+          <output>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="POST" uri-template="business-object-type"/>
+          </config>
+          <doc>
+            <summary>Creates a new Business Object Type object using the specified data.</summary>
+          </doc>
+        </operation>
+        <operation name="update" type="update">
+          <input>
+            <param name="id"/>
+            <struct name="data">
+              <param name="business object"/>
+              <param name="stub"/>
+              <param name="description"/>
+              <param name="active" type="yesno"/>
+              <config>
+                <xfk:add-to-object class="BusinessObjectTypeObject"/>
+              </config>
+            </struct>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </input>
+          <config>
+            <rest:method verb="PUT" uri-template="business-object-type/{id}"/>
+          </config>
+          <doc>
+            <summary>Updates existing Business Object Type object using the specified data.</summary>
+          </doc>
+        </operation>
+        <operation name="delete" type="delete">
+          <input>
+            <param name="id"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeObject"/>
+            </config>
+          </input>
+          <config>
+            <rest:method verb="DELETE" uri-template="business-object-type/{id}"/>
+          </config>
+          <doc>
+            <summary>Deletes the specified Business Object Type object.</summary>
+          </doc>
+        </operation>
         <operation name="read enums">
           <output list="true">
             <param name="enum type" type="string"/>
@@ -59,11 +142,65 @@
             <param name="active"/>
           </output>
           <config>
-            <rest:method verb="GET" uri-template="business-object-type"/>
+            <rest:method verb="GET" uri-template="business-object-type/enum"/>
             <xfk:enum-cache enum-param="enum type" id-param="id" desc-param="stub" is-active-param="active"/>
           </config>
           <doc>
             <summary>Reads a list of Business Object Type enums.</summary>
+          </doc>
+        </operation>
+        <operation name="read list" type="readlist">
+          <input>
+            <struct name="criteria">
+              <param name="business object operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Business Object criteria.</summary>
+                </doc>
+              </param>
+              <param name="business object" required="false"/>
+              <param name="business object2" type="business object" required="false">
+                <doc>
+                  <summary>End of range for the corresponding Business Object criteria for the BETWEEN operator.</summary>
+                </doc>
+              </param>
+              <param name="stub operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Stub criteria.</summary>
+                </doc>
+              </param>
+              <param name="stub" required="false"/>
+              <param name="description operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Description criteria.</summary>
+                </doc>
+              </param>
+              <param name="description" required="false"/>
+              <param name="active operator" type="operator">
+                <doc>
+                  <summary>Comparison operator for the corresponding Active criteria.</summary>
+                </doc>
+              </param>
+              <param name="active" required="false" type="yesno"/>
+              <config>
+                <xfk:add-to-object class="BusinessObjectTypeCriteria"/>
+              </config>
+            </struct>
+          </input>
+          <output list="true">
+            <param name="id"/>
+            <param name="business object"/>
+            <param name="stub"/>
+            <param name="description"/>
+            <param name="active" type="yesno"/>
+            <config>
+              <xfk:add-to-object class="BusinessObjectTypeList"/>
+            </config>
+          </output>
+          <config>
+            <rest:method verb="GET" uri-template="business-object-type?{criteria}"/>
+          </config>
+          <doc>
+            <summary>Reads a list of Business Object Type objects based on the specified criteria.</summary>
           </doc>
         </operation>
         <doc>
@@ -75,4 +212,41 @@
       </config>
     </object>
   </objects>
+  <xfk:data-objects>
+    <xfk:data-object class="BusinessObjectTypeObject" customize="true">
+      <ui:display>
+        <ui:fields>
+          <ui:field param="id" hidden="true"/>
+        </ui:fields>
+        <ui:tabs/>
+      </ui:display>
+    </xfk:data-object>
+    <xfk:data-object class="BusinessObjectTypeCriteria"/>
+    <xfk:data-object class="BusinessObjectTypeList" list="true">
+      <ui:display>
+        <ui:fields>
+          <ui:field param="id" hidden="true"/>
+        </ui:fields>
+      </ui:display>
+      <ui:link name="details" view="BusinessObjectTypeView" child="true">
+        <ui:params>
+          <ui:param name="id" field="id"/>
+        </ui:params>
+        <ui:display on-field="business object"/>
+      </ui:link>
+      <ui:link name="new" view="BusinessObjectTypeView" child="true">
+        <ui:params>
+          <ui:param name="_action" value="create"/>
+        </ui:params>
+      </ui:link>
+    </xfk:data-object>
+  </xfk:data-objects>
+  <ui:views>
+    <ui:view name="BusinessObjectTypeView" title="Business Object Type">
+      <ui:view-model data-object="BusinessObjectTypeObject"/>
+    </ui:view>
+    <ui:view name="BusinessObjectTypeListView" title="Business Object Type List">
+      <ui:view-model data-object="BusinessObjectTypeList"/>
+    </ui:view>
+  </ui:views>
 </module>

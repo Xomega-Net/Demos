@@ -8,16 +8,18 @@
         xmlns:clr="http://www.xomega.net/clr"
         xmlns:edm="http://www.xomega.net/edm">
   <types>
-    <type name="business object" base="integer key"/>
+    <type name="business object" base="integer enumeration">
+      <enum ref="business object"/>
+    </type>
   </types>
   <enums>
     <enum name="business object">
-      <item name="WorkOrder" value="1">
+      <item name="Work Order" value="1">
         <doc>
           <summary>WorkOrder Business Object</summary>
         </doc>
       </item>
-      <item name="MaintenanceTemplate" value="2">
+      <item name="Maintenance Template" value="2">
         <doc>
           <summary>WorkOrder Business Object</summary>
         </doc>

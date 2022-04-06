@@ -12,6 +12,8 @@ namespace Demo.Client.Common.ViewModels
     {
         public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
+            services.AddTransient<BusinessObjectTypeViewModel, BusinessObjectTypeViewModel>();
+            services.AddTransient<BusinessObjectTypeListViewModel, BusinessObjectTypeListViewModel>();
             services.AddTransient<MaintenanceTemplateViewModel, MaintenanceTemplateViewModel>();
             services.AddTransient<MaintenanceTemplateListViewModel, MaintenanceTemplateListViewModel>();
             return services;

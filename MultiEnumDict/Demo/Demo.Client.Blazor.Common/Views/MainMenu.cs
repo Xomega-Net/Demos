@@ -21,6 +21,18 @@ namespace Demo.Client.Blazor.Common.Views
                 {
                     new MenuItem()
                     {
+                        ResourceKey = "BusinessObjectTypeView_NavMenu",
+                        IconClass = "bi bi-pencil-square",
+                        Href = "BusinessObjectTypeView?_action=create"
+                    },
+                    new MenuItem()
+                    {
+                        ResourceKey = "BusinessObjectTypeListView_NavMenu",
+                        IconClass = "bi bi-card-list",
+                        Href = "BusinessObjectTypeListView"
+                    },
+                    new MenuItem()
+                    {
                         ResourceKey = "MaintenanceTemplateView_NavMenu",
                         IconClass = "bi bi-pencil-square",
                         Href = "MaintenanceTemplateView?_action=create"

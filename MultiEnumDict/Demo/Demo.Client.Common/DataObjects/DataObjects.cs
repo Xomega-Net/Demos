@@ -12,6 +12,9 @@ namespace Demo.Client.Common.DataObjects
     {
         public static IServiceCollection AddDataObjects(this IServiceCollection services)
         {
+            services.AddTransient<BusinessObjectTypeCriteria, BusinessObjectTypeCriteria>();
+            services.AddTransient<BusinessObjectTypeList, BusinessObjectTypeList>();
+            services.AddTransient<BusinessObjectTypeObject, BusinessObjectTypeObjectCustomized>();
             services.AddTransient<MaintenanceTemplateCriteria, MaintenanceTemplateCriteria>();
             services.AddTransient<MaintenanceTemplateList, MaintenanceTemplateList>();
             services.AddTransient<MaintenanceTemplateObject, MaintenanceTemplateObject>();

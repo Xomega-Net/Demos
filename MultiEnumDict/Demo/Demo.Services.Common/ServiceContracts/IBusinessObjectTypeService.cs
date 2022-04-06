@@ -17,10 +17,109 @@ namespace Demo.Services.Common
     {
 
         ///<summary>
+        /// Reads the values of a Business Object Type object by its key.
+        ///</summary>
+        Task<Output<BusinessObjectType_ReadOutput>> ReadAsync(int _id, CancellationToken token = default);
+
+        ///<summary>
+        /// Creates a new Business Object Type object using the specified data.
+        ///</summary>
+        Task<Output<BusinessObjectType_CreateOutput>> CreateAsync(BusinessObjectType_CreateInput _data, CancellationToken token = default);
+
+        ///<summary>
+        /// Updates existing Business Object Type object using the specified data.
+        ///</summary>
+        Task<Output> UpdateAsync(int _id, BusinessObjectType_UpdateInput_Data _data, CancellationToken token = default);
+
+        ///<summary>
+        /// Deletes the specified Business Object Type object.
+        ///</summary>
+        Task<Output> DeleteAsync(int _id, CancellationToken token = default);
+
+        ///<summary>
         /// Reads a list of Business Object Type enums.
         ///</summary>
         Task<Output<ICollection<BusinessObjectType_ReadEnumsOutput>>> ReadEnumsAsync(CancellationToken token = default);
 
+        ///<summary>
+        /// Reads a list of Business Object Type objects based on the specified criteria.
+        ///</summary>
+        Task<Output<ICollection<BusinessObjectType_ReadListOutput>>> ReadListAsync(BusinessObjectType_ReadListInput_Criteria _criteria, CancellationToken token = default);
+
+    }
+    #endregion
+
+    #region BusinessObjectType_ReadOutput structure
+
+    ///<summary>
+    /// The output structure of operation IBusinessObjectTypeService.ReadAsync.
+    ///</summary>
+    public class BusinessObjectType_ReadOutput
+    {
+        
+        public int BusinessObject { get; set; }
+        
+        public string Stub { get; set; }
+        
+        public string Description { get; set; }
+        
+        public bool? Active { get; set; }
+    }
+    #endregion
+
+    #region BusinessObjectType_CreateInput structure
+
+    ///<summary>
+    /// The input structure of operation IBusinessObjectTypeService.CreateAsync.
+    ///</summary>
+    public class BusinessObjectType_CreateInput
+    {
+        
+        [XRequired]
+        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        public int BusinessObject { get; set; }
+        
+        [XMaxLength(30)]
+        public string Stub { get; set; }
+        
+        [XMaxLength(255)]
+        public string Description { get; set; }
+        
+        public bool? Active { get; set; }
+    }
+    #endregion
+
+    #region BusinessObjectType_CreateOutput structure
+
+    ///<summary>
+    /// The output structure of operation IBusinessObjectTypeService.CreateAsync.
+    ///</summary>
+    public class BusinessObjectType_CreateOutput
+    {
+        
+        public int Id { get; set; }
+    }
+    #endregion
+
+    #region BusinessObjectType_UpdateInput_Data structure
+
+    ///<summary>
+    /// Structure of parameter Data of the input structure of operation IBusinessObjectTypeService.UpdateAsync.
+    ///</summary>
+    public class BusinessObjectType_UpdateInput_Data
+    {
+        
+        [XRequired]
+        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        public int BusinessObject { get; set; }
+        
+        [XMaxLength(30)]
+        public string Stub { get; set; }
+        
+        [XMaxLength(255)]
+        public string Description { get; set; }
+        
+        public bool? Active { get; set; }
     }
     #endregion
 
@@ -35,6 +134,81 @@ namespace Demo.Services.Common
         public string EnumType { get; set; }
         
         public int Id { get; set; }
+        
+        public string Stub { get; set; }
+        
+        public string Description { get; set; }
+        
+        public bool? Active { get; set; }
+    }
+    #endregion
+
+    #region BusinessObjectType_ReadListInput_Criteria structure
+
+    ///<summary>
+    /// Structure of parameter Criteria of the input structure of operation IBusinessObjectTypeService.ReadListAsync.
+    ///</summary>
+    public class BusinessObjectType_ReadListInput_Criteria
+    {
+        
+        ///<summary>
+        /// Comparison operator for the corresponding Business Object criteria.
+        ///</summary>
+        [XMaxLength(25)]
+        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        public string BusinessObjectOperator { get; set; }
+        
+        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        public int? BusinessObject { get; set; }
+        
+        ///<summary>
+        /// End of range for the corresponding Business Object criteria for the BETWEEN operator.
+        ///</summary>
+        [XLookupValue(Demo.Services.Common.Enumerations.BusinessObject.EnumName)]
+        public int? BusinessObject2 { get; set; }
+        
+        ///<summary>
+        /// Comparison operator for the corresponding Stub criteria.
+        ///</summary>
+        [XMaxLength(25)]
+        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        public string StubOperator { get; set; }
+        
+        [XMaxLength(30)]
+        public string Stub { get; set; }
+        
+        ///<summary>
+        /// Comparison operator for the corresponding Description criteria.
+        ///</summary>
+        [XMaxLength(25)]
+        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        public string DescriptionOperator { get; set; }
+        
+        [XMaxLength(255)]
+        public string Description { get; set; }
+        
+        ///<summary>
+        /// Comparison operator for the corresponding Active criteria.
+        ///</summary>
+        [XMaxLength(25)]
+        [XLookupValue(Demo.Services.Common.Enumerations.Operators.EnumName)]
+        public string ActiveOperator { get; set; }
+        
+        public bool? Active { get; set; }
+    }
+    #endregion
+
+    #region BusinessObjectType_ReadListOutput structure
+
+    ///<summary>
+    /// The output structure of operation IBusinessObjectTypeService.ReadListAsync.
+    ///</summary>
+    public class BusinessObjectType_ReadListOutput
+    {
+        
+        public int Id { get; set; }
+        
+        public int BusinessObject { get; set; }
         
         public string Stub { get; set; }
         

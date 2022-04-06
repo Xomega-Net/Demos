@@ -142,7 +142,7 @@
   </item>
  </enum>
  <enum name="business object">
-  <item name="WorkOrder" value="1"/>
-  <item name="MaintenanceTemplate" value="2"/>
+  <item name="Work Order" value="1"/>
+  <item name="Maintenance Template" value="2"/>
  </enum>
 </enums>

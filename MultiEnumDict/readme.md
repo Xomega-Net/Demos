@@ -10,7 +10,9 @@ The `BusinessObjectType` table stores enumeration items for multiple enumeration
 
 The `MaintenanceTemplate` table has fields `ScheduleType` and `WorkOrderType` that reference specific enumerations (business objects).
 
-**Requirement:** The app should restrict enum items for those fields to the proper enumerations.
+### Requirements
+1. The app should restrict enum items for those fields to the proper enumerations.
+1. Adding, editing or deleting business object types should refresh cached enumerations.
 
 ## Xomega steps and features
 
